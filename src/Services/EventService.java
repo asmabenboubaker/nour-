@@ -88,7 +88,7 @@ public class EventService implements IService<Blog> {
       }
      public void update(Blog t) throws SQLException {
           //String req="UPDATE personne SET nom='"+t.getNom()+"',prenom='"+t.getPrenom()+"'WHERE id="+t.getId();
-            String req="UPDATE blog SET nom='"+t.getNom()+"',descri='"+t.getPrenom() +"',date='"+t.getDate()+"',id_cat='"+t.getCat() +"'WHERE id="+t.getId();
+            String req="UPDATE blog SET nom='"+t.getNom()+"',descri='"+t.getPrenom() +"',date='"+t.getDate()+"',categorie_id='"+t.getCat() +"'WHERE id="+t.getId();
        // String req = "UPDATE `personne` SET `nom`=?, `prenom`=? WHERE id=&id";
         PreparedStatement pstm = con.prepareStatement(req);
        

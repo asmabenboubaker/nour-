@@ -42,5 +42,6 @@
             <Button mnemonicParsing="false" onAction="#cat" prefHeight="57.0" prefWidth="163.0" style="-fx-background-color: #F1BF15; -fx-label-padding: ;" text="Categorie" />
          </children>
       </VBox>
+      <Button fx:id="bb" layoutX="303.0" layoutY="335.0" mnemonicParsing="false" onAction="#bb" text="Button" />
    </children>
 </AnchorPane>

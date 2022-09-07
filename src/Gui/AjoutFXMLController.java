@@ -78,6 +78,7 @@ public class AjoutFXMLController implements Initializable {
     
    final ObservableList<String> options = FXCollections.observableArrayList();
      private List<Categorie> cat = new ArrayList<>();
+     private List<Categorie> catss = new ArrayList<>();
     @FXML
     private ComboBox<String> combo;
     @FXML
@@ -94,6 +95,8 @@ public class AjoutFXMLController implements Initializable {
     @FXML
     private Label nomimage;
     String path;
+    
+ 
     /**
      * Initializes the controller class.
      */
@@ -194,6 +197,7 @@ public class AjoutFXMLController implements Initializable {
         System.out.print("   nullll ");
     }
         else{
+            /*
       if ( combo.getValue().equals("ssss")){
             
         p.setCat(5);
@@ -208,7 +212,20 @@ public class AjoutFXMLController implements Initializable {
       }
       else {
           p.setCat(4);
-      }
+      }*/
+            CategorieService ps=new CategorieService();
+            try {
+                System.out.print(catss);
+                catss= ps.afficher();
+                 for(int i=0;i<catss.size();i++){
+                      if(catss.get(i).getNom().equals(combo.getValue())){
+                           p.setCat(catss.get(i).getId());
+                            System.out.print("offffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+                      }
+                 }
+            } catch (SQLException ex) {
+                Logger.getLogger(AjoutFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
       
         EventService ps = new EventService();

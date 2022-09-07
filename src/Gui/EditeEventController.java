@@ -60,7 +60,7 @@ public class EditeEventController implements Initializable {
     private ComboBox<String> combo;
     
     
-    
+    private List<Categorie> catss = new ArrayList<>();
      final ObservableList<String> options = FXCollections.observableArrayList();
      private List<Categorie> cat = new ArrayList<>();
     /**
@@ -108,7 +108,7 @@ public class EditeEventController implements Initializable {
         System.out.print("   nullll ");
         
     }
-                else{
+                else{/*
       if ( combo.getValue().equals("art")){
             
         fruit.setCat(1);
@@ -123,7 +123,20 @@ public class EditeEventController implements Initializable {
       }
       else {
           fruit.setCat(4);
-      }
+      }*/
+                    CategorieService ps=new CategorieService();
+            try {
+                System.out.print(catss);
+                catss= ps.afficher();
+                 for(int i=0;i<catss.size();i++){
+                      if(catss.get(i).getNom().equals(combo.getValue())){
+                           fruit.setCat(catss.get(i).getId());
+                            System.out.print("offffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+                      }
+                 }
+            } catch (SQLException ex) {
+                Logger.getLogger(AjoutFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 }
               EventService ps = new EventService();
           LocalDate todaysDate = LocalDate.now();
